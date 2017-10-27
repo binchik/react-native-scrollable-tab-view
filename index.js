@@ -39,6 +39,7 @@ const ScrollableTabView = createReactClass({
     onScroll: PropTypes.func,
     renderTabBar: PropTypes.any,
     style: ViewPropTypes.style,
+    width: PropTypes.number,
     contentProps: PropTypes.object,
     scrollWithoutAnimation: PropTypes.bool,
     locked: PropTypes.bool,
@@ -60,7 +61,7 @@ const ScrollableTabView = createReactClass({
   },
 
   getInitialState() {
-    const containerWidth = Dimensions.get('window').width;
+    const {width: containerWidth} = this.props;
     let scrollValue;
     let scrollXIOS;
     let positionAndroid;
@@ -360,6 +361,7 @@ const ScrollableTabView = createReactClass({
       activeTab: this.state.currentPage,
       scrollValue: this.state.scrollValue,
       containerWidth: this.state.containerWidth,
+      width: this.props.width,
     };
 
     if (this.props.tabBarBackgroundColor) {
