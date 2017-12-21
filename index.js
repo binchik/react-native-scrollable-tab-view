@@ -61,7 +61,7 @@ const ScrollableTabView = createReactClass({
   },
 
   getInitialState() {
-    const {width: containerWidth} = this.props;
+    const {width: containerWidth = Dimensions.get('window').width} = this.props;
     let scrollValue;
     let scrollXIOS;
     let positionAndroid;
